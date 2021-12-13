@@ -1,0 +1,25 @@
+<!-- {{newList|json}} -->
+
+<div class="content-wrapper">
+
+  <div class="news-card" *ngFor="let item of newList">
+    <a class="news-card__card-link" (click)="goToDetails(item)"></a>
+    <ng-container *ngIf="item?.media.length !== 0">
+      <img [src]="item?.media[0]['media-metadata'][2].url" class="card-img-top" [alt]="item.title"
+        style="height:400px;width:500px">
+    </ng-container>
+    <ng-container *ngIf="item.media.length===0">
+      <img src="https://place-hold.it/750x1260" class="card-img-top" alt="no image">
+    </ng-container>
+    <div class="news-card__text-wrapper">
+      <h2 class="news-card__title">{{item.title}}</h2>
+      <div class="news-card__post-date">{{item.published_date}}</div>
+      <div class="news-card__details-wrapper">
+        <p class="news-card__excerpt">{{item.abstract}}</p>
+        <a class="news-card__read-more cursor" (click)="goToDetails(item)">Read more <i
+            class="fas fa-long-arrow-alt-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+</div>

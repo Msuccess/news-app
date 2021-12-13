@@ -1,0 +1,52 @@
+<section class="section single-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="page-wrapper">
+          <div class="blog-title-area text-center">
+
+            <div class="blog-meta big-meta">
+              <small><a [routerLink]="['/home']" routerLinkActive="router-link-active" title="">Home</a></small>
+              <small><a href="javascript:void(0)" title="">{{newsOverview.title}}</a></small>
+            </div><!-- end meta -->
+
+            <h3>{{newsOverview.title}}</h3>
+
+            <div class="blog-meta big-meta">
+              <small><a href="javascript:void(0)" title="">{{newsOverview.byline}}</a></small>
+              <small><a href="javascript:void(0)" title="">{{newsOverview.published_date}}</a></small>
+            </div><!-- end meta -->
+
+
+          </div><!-- end title -->
+
+          <div class="single-post-media">
+            <ng-container *ngIf="newsOverview?.media.length !== 0">
+              <img [src]="newsOverview?.media[0]['media-metadata'][2].url" class="card-img-top image-fluid"
+                [alt]="newsOverview.title">
+            </ng-container>
+
+            <ng-container *ngIf="newsOverview.media.length===0">
+              <img src="https://place-hold.it/75x75" class="card-img-top image-fluid" alt="no image">
+            </ng-container>
+          </div><!-- end media -->
+
+          <div class="blog-content">
+            <div class="pp">
+              <p> {{newsOverview.abstract}} </p>
+            </div><!-- end pp -->
+          </div><!-- end content -->
+
+          <div class="blog-title-area">
+            <div class="tag-cloud-single">
+              <span>Tags</span>
+              <small *ngFor="let item of newsOverview.des_facet "><a href="javascript:void(0)"
+                  title="">{{item}}</a></small>
+            </div><!-- end meta -->
+          </div><!-- end title -->
+
+        </div><!-- end page-wrapper -->
+      </div><!-- end col -->
+    </div><!-- end row -->
+  </div><!-- end container -->
+</section>
