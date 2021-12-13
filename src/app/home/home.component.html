@@ -3,7 +3,7 @@
 <div class="content-wrapper">
 
   <div class="news-card" *ngFor="let item of newList">
-    <a class="news-card__card-link" (click)="goToDetails(item)"></a>
+    <a href="javascript:void(0);" class="news-card__card-link" (click)="goToDetails(item)"></a>
     <ng-container *ngIf="item?.media.length !== 0">
       <img [src]="item?.media[0]['media-metadata'][2].url" class="card-img-top" [alt]="item.title"
         style="height:400px;width:500px">

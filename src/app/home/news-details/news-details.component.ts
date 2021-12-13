@@ -15,8 +15,6 @@ export class NewsDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.newsService.getNewsDetails().subscribe((news: any) => {
       this.newsOverview = news;
-      console.log(news);
-      console.log(news.media[0]['media-metadata'][0].url);
     });
   }
 }
